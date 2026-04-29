@@ -31,9 +31,9 @@ useEffect(() => {
     <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
       {/* 🎥 Video */}
       <div className="absolute inset-0 z-0">
-        <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-          <source src="/src/assets/hero.mp4" type="video/mp4" />
-        </video>
+       <video autoPlay loop muted playsInline>
+  <source src="/hero.mp4" type="video/mp4" />
+</video>
         <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.5),rgba(13,96,232,0.3))]" />
       </div>
 
