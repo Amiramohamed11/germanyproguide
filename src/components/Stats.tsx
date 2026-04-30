@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion, useSpring, useTransform } from 'motion/react';
 import { getStats } from '@/lib/api';
 
-// مكون فرعي مسؤول عن حركة الأرقام
 function AnimatedNumber({ value }: { value: string }) {
-  // استخراج الرقم من النص (مثلاً "10k" تصبح 10000)
   const numericValue = parseInt(value.replace(/[^0-9]/g, '')) || 0;
   const spring = useSpring(0, { duration: 2500 });
   const display = useTransform(spring, (current) => Math.floor(current).toLocaleString());
@@ -17,13 +16,17 @@ function AnimatedNumber({ value }: { value: string }) {
 }
 
 export default function Stats() {
+  const { t, i18n } = useTranslation();
   const [statsData, setStatsData] = useState<any[]>([]);
+  const isAr = i18n.language === 'ar';
 
   useEffect(() => {
+    // جلب البيانات من الـ API (الداشبورد)
     getStats()
       .then((res) => {
-        // التأكد من جلب البيانات (قد تختلف حسب هيكلة الـ API الخاص بك)
-        setStatsData(res.data.data || res.data || []);
+        // تأكد من مسار البيانات حسب هيكلة الـ API الخاصة بك
+        const data = res.data?.data || res.data || [];
+        setStatsData(data);
       })
       .catch((err) => console.error("Error fetching stats:", err));
   }, []);
@@ -32,6 +35,7 @@ export default function Stats() {
     <section 
       className="relative py-24 overflow-hidden"
       style={{ background: 'linear-gradient(to bottom, #03C0EC, #0359E8)' }}
+      dir={isAr ? 'rtl' : 'ltr'}
     >
       {/* الموجة العلوية */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] transform translate-y-[-1px]">
@@ -42,18 +46,31 @@ export default function Stats() {
 
       <div className="container mx-auto px-4 relative z-10 mt-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center text-white">
-          {statsData.map((stat, index) => (
-            <div key={index} className="flex flex-col items-center">
-              <span className="text-[64px] md:text-[80px] font-bold mb-4 tracking-tighter">
-                <AnimatedNumber value={stat.value} />
-                {/* إضافة الرموز (مثل % أو +) التي تلي الرقم */}
-                <span className="text-4xl">{stat.value.replace(/[0-9]/g, '')}</span>
-              </span>
-              <p className="text-white/90 text-lg leading-relaxed max-w-[280px]">
-                {stat.label}
-              </p>
-            </div>
-          ))}
+          {statsData.map((stat, index) => {
+            /**
+             * منطق عرض النص:
+             * 1. إذا كانت اللغة الحالية هي العربية، نأخذ النص من الداشبورد (stat.label) أولاً.
+             * 2. إذا كانت لغة أخرى (EN/DE)، نبحث عن الترجمة في ملف i18n، وإذا لم نجدها نعود لنص الداشبورد.
+             */
+            const displayLabel = isAr 
+              ? (stat.label || t(`stats.items.${index}.label`)) 
+              : t(`stats.items.${index}.label`, { defaultValue: stat.label });
+
+            return (
+              <div key={index} className="flex flex-col items-center">
+                <span className="text-[64px] md:text-[80px] font-bold mb-4 tracking-tighter">
+                  {/* القيمة تأتي دائماً من الداشبورد */}
+                  <AnimatedNumber value={String(stat.value)} />
+                  <span className="text-4xl ml-1">
+                    {String(stat.value).replace(/[0-9]/g, '')}
+                  </span>
+                </span>
+                <p className="text-white/90 text-lg leading-relaxed max-w-[280px]">
+                  {displayLabel}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
 

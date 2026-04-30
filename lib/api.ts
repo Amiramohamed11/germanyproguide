@@ -1,7 +1,8 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from 'axios';
-import i18n from 'i18next'; // استيراد i18n للحصول على اللغة الحالية
+import i18n from 'i18next';
 
-const API_BASE_URL = 'https://germanyproguide.com/api/v1';
+// استخدام متغيرات البيئة (Environment Variables) أفضل للمشاريع الكبيرة
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://germanyproguide.com/api/v1';
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
@@ -13,43 +14,49 @@ const apiClient = axios.create({
 
 /**
  * إعداد "Interceptor" (المراقب):
- * هذا الجزء يعمل قبل كل طلب يخرج من الموقع للسيرفر.
+ * يعمل قبل إرسال كل طلب للتأكد من تحديث البيانات (التوكن واللغة)
  */
 apiClient.interceptors.request.use((config: InternalAxiosRequestConfig) => {
-  // 1. إضافة التوكن تلقائياً (للمستقبل)
+  // 1. إضافة التوكن تلقائياً
   const token = localStorage.getItem('token');
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
 
-  // 2. إرسال اللغة الحالية للسيرفر (مهم جداً للترجمة)
-  // سيقوم بإرسال 'ar' أو 'de' بناءً على لغة الموقع الحالية
-  const currentLanguage = i18n.language || 'de'; 
+  // 2. مزامنة اللغة الحالية (ar, en, de)
+  // نعتمد على i18n.language بشكل أساسي مع قيمة افتراضية
+  const currentLanguage = i18n.language || 'ar'; 
+  
+  // إرسال اللغة في الهيدر (المعيار القياسي)
   config.headers['Accept-Language'] = currentLanguage;
+
+  // إرسال اللغة كبارامتر تلقائي في الرابط (Query Param) 
+  // لضمان استلام البيانات المترجمة من قاعدة البيانات دون تكرار الكود في كل دالة
+  config.params = {
+    ...config.params,
+    lang: currentLanguage
+  };
 
   return config;
 });
 
 // --- الخدمات (Services) ---
-// تم تعديلها لتمرير بارامتر اللغة إذا كان الـ API يفضل استقبالها في الـ URL
+// بفضل الـ interceptor أعلاه، لم نعد بحاجة لكتابة lang: i18n.language في كل طلب يدوياً
 export const getServices = (publishedOnly: boolean = true, perPage: number = 50) => 
   apiClient.get(`/services`, {
     params: {
       per_page: perPage,
       published_only: publishedOnly ? '1' : '0',
-      lang: i18n.language // بعض الـ APIs تفضل استقبال اللغة هنا أيضاً
     }
   });
- 
+
 export const getServiceBySlug = (slug: string) => 
-  apiClient.get(`/services/${slug}`, {
-    params: { lang: i18n.language }
-  });
+  apiClient.get(`/services/${slug}`);
 
 // --- المواعيد والحجز (Booking) ---
 export const getAvailability = (date: string) => 
   apiClient.get(`/availability`, { 
-    params: { date, lang: i18n.language } 
+    params: { date } 
   });
 
 export const createBooking = (bookingData: {
@@ -70,23 +77,29 @@ export const sendContactMessage = (messageData: {
 }) => apiClient.post('/contact', messageData);
 
 // --- إعدادات الموقع والبيانات العامة ---
-export const getHomepageData = () => apiClient.get('/homepage', {
-  params: { lang: i18n.language }
-});
+export const getHomepageData = () => apiClient.get('/homepage');
 
-export const getSettings = () => apiClient.get('/settings', {
-  params: { lang: i18n.language }
-});
+export const getSettings = () => apiClient.get('/settings');
 
 export const getStats = () => apiClient.get('/stats');
 
-// دالة مساعدة لالتقاط الأخطاء
-export const handleApiError = (error: AxiosError) => {
-  if (error.response) {
-    console.error("API Error Data:", error.response.data);
-    return error.response.data;
+/**
+ * معالج الأخطاء المحسن:
+ * يوفر رسائل واضحة بناءً على نوع الخطأ القادم من السيرفر
+ */
+export const handleApiError = (error: unknown) => {
+  if (axios.isAxiosError(error)) {
+    const axiosError = error as AxiosError<{ message?: string; errors?: any }>;
+    if (axiosError.response) {
+      // أخطاء قادمة من السيرفر (مثل 400, 422, 500)
+      console.error("API Error Status:", axiosError.response.status);
+      return axiosError.response.data;
+    } else if (axiosError.request) {
+      // خطأ في الاتصال بالسيرفر (Network Error)
+      return { message: i18n.t('errors.network', 'خطأ في الاتصال بالسيرفر') };
+    }
   }
-  return { message: "حدث خطأ غير متوقع" };
+  return { message: i18n.t('errors.unexpected', 'حدث خطأ غير متوقع') };
 };
 
 export default apiClient;

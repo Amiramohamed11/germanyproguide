@@ -13,227 +13,169 @@ const resources = {
       },
       hero: {
         title: 'هل تفكر في السفر إلى ألمانيا؟',
-        description: 'نقدم استشارات شاملة تهدف إلى تعزيز نجاحاتك وتوجيه المشرفين. نحن هنا لمساعدتك في الحصول على فرص عمل مميزة في ألمانيا، حيث نعمل على توفير الدعم والإرشاد اللازمين لتحقيق أهدافك المهنية.',
+        description: 'نقدم استشارات شاملة تهدف إلى تعزيز نجاحاتك وتوجيه المشرفين. نحن هنا لمساعدتك في الحصول على فرص عمل مميزة في ألمانيا.',
         cta: 'احجز استشارة الآن!',
       },
       about: {
-        title: 'طريقك إلى ألمانيا يبدأ معنا',
-        description: 'نحن شركة متخصصة في الاستشارات والتنفيذ الكامل لملفات السفر إلى ألمانيا. نرافقك خطوة بخطوة في رحلتك نحو العمل، الدراسة، أو التدريب المهني. بدءاً من تقييم ملفك الشخصي بدقة، وصولاً إلى تقديم طلب الفيزا ومتابعته حتى صدور القرار. نعتمد على فهم عميق للأنظمة والإجراءات الألمانية، ونقدم لكل عميل خطة مخصصة تناسب مؤهلاته، خبرته، ومستوى اللغة، بعيداً عن الحلول الجاهزة أو الوعود غير الواقعية.',
-        mission: 'هدفنا هو تحويل حلم السفر إلى ألمانيا إلى مسار واضح، قانوني، وآمن. وتقليل المخاطر والأخطاء التي قد تكلفك الوقت والمال. نحن لا نقدم خدمة فقط، بل نكون شريكك الحقيقي في كل خطوة، لأن نجاحك في الوصول إلى ألمانيا هو مقياس نجاحنا.',
-        cta: 'احجز استشارة الآن!',
+        title: 'من نحن',
+        description: 'نحن متخصصون في تقديم الاستشارات الشاملة للمصريين والعرب الراغبين في الانتقال إلى ألمانيا، سواء للعمل، الدراسة، أو التدريب المهني.',
+        mission: 'مهمتنا هي تذليل كافة العقبات القانونية والإجرائية وتوفير الدعم اللازم لضمان نجاح استقرارك في المجتمع الألماني.',
+        cta: 'تعرف على المزيد'
       },
       services: {
         title: 'خدماتنا - السفر إلى ألمانيا 🇩🇪',
-        subtitle: 'نقدم استشارات وتنفيذاً كاملاً لكل من يرغب بالسفر إلى ألمانيا للعمل، الدراسة، أو التدريب المهني، مع متابعة دقيقة خطوة بخطوة.',
-        work: {
-          title: 'العمل في ألمانيا',
-          items: [
-            'البحث عن فرص عمل مناسبة حسب الخبرة',
-            'تجهيز وتعديل السيرة الذاتية (CV)',
-            'كتابة Cover Letter احترافية',
-            'مراجعة عقود العمل والتأكد من قانونيتها',
-            'التحقق من مصداقية الشركات',
-          ],
-        },
-        training: {
-          title: 'التدريب المهني في ألمانيا',
-          items: [
-            'المساعدة في إيجاد فرص تدريب مهني مناسبة',
-            'التوجيه حسب المؤهل ومستوى اللغة',
-            'تجهيز أوراق التقديم كاملة',
-            'مراجعة عقود التدريب',
-            'المتابعة مع جهة التدريب',
-          ],
-        },
-        study: {
-          title: 'الدراسة في ألمانيا',
-          items: [
-            'استشارات دراسية مختصة',
-            'اختيار التخصص والجامعة المناسبة',
-            'تجهيز أوراق التقديم للجامعات',
-            'معادلة الشهادات',
-            'التوجيه لتعلم اللغة الألمانية',
-          ],
-        },
-        visa: {
-          title: 'الفيزا',
-          items: [
-            'تجهيز ملف الفيزا بشكل كامل',
-            'مراجعة جميع المستندات المطلوبة',
-            'تجهيز التأمين الصحي',
-          ],
-        },
-        planning: {
-          title: 'الاستشارات والتخطيط',
-          items: [
-            'فحص وتقييم الملف الشخصي',
-            'تقييم المؤهل والخبرة العملية',
-            'تحديد أنسب مسار (عمل - دراسة - تدريب)',
-            'وضع خطة تقديم واضحة',
-            'تقديم إرشادات مخصصة لكل حالة',
-          ],
-        },
-        docs: {
-          title: 'تجهيز ومراجعة الأوراق',
-          items: [
-            'مراجعة جميع الأوراق المطلوبة',
-            'تعديل وتجهيز السيرة الذاتية (CV)',
-            'كتابة أو تحسين Cover Letter',
-            'مراجعة عقود العمل أو التدريب',
-            'التأكد من توافق الأوراق مع متطلبات السفارة',
-          ],
-        },
+        subtitle: 'نقدم استشارات وتنفيذاً كاملة لكل من يرغب بالسفر إلى ألمانيا للعمل، الدراسة، أو التدريب المهني.',
+        items: [
+          { title: 'العمل في ألمانيا', features: ['البحث عن فرص عمل مناسبة', 'تجهيز السيرة الذاتية (CV)', 'كتابة خطاب التغطية', 'مراجعة عقود العمل'] },
+          { title: 'التدريب المهني (Ausbildung)', features: ['إيجاد فرص تدريب مهني', 'التوجيه حسب المؤهل', 'تجهيز أوراق التقديم', 'مراجعة العقود'] },
+          { title: 'الدراسة في ألمانيا', features: ['استشارات دراسية', 'اختيار الجامعة', 'تجهيز أوراق التقديم', 'معادلة الشهادات'] },
+          { title: 'البحث عن سكن', features: ['توفير خيارات سكنية', 'مراجعة عقود الإيجار', 'تأمين سكن مؤقت', 'نصائح عن المناطق'] },
+          { title: 'الاعتراف بالشهادات', features: ['تقييم الشهادات الأجنبية', 'التواصل مع النقابات', 'ترجمة المستندات', 'متابعة إجراءات التعديل'] },
+          { title: 'تأشيرات الفيزا', features: ['تجهيز ملف السفارة', 'حجز مواعيد المقابلة', 'تأمين صحي للسفر', 'التحضير للمقابلة الشخصية'] }
+        ]
       },
       stats: {
-        success: '10%',
-        successDesc: 'بقدر عملائنا خدمتنا المتخصصة والتغطية المصممة خصيصاً، والاستجابات السريعة التي مكنتهم من السفر بنجاح إلى ألمانيا.',
-        clients: '1',
-        clientsDesc: 'عميل تمكن من السفر إلى ألمانيا بفضل مساعدتنا في تسهيل إجراءات التأشيرة وتوفير الدعم اللازم.',
-        experience: '1',
-        experienceDesc: 'من خلال خبرتنا الواسعة في قطاع التأمين، تُمكّن عملائنا من السفر بثقة إلى ألمانيا.',
+        items: [
+          { label: 'استشارة مقدمة' },
+          { label: 'عملية توظيف ناجحة' },
+          { label: 'سنوات من الخبرة' }
+        ]
       },
-      contact: {
-        title: 'تواصل معنا',
-        subtitle: 'إذا كانت لديك أي أسئلة أو استفسارات حول خدماتنا، فلا تتردد في التواصل معنا. فريق الدعم الفني لدينا جاهز لمساعدتك في كل خطوة.',
+      contact: { 
+        title: 'تواصل معنا', 
+        subtitle: 'نحن هنا للإجابة على استفساراتك ومساعدتك في رحلتك إلى ألمانيا. أرسل لنا رسالة وسنقوم بالرد عليك في أقرب وقت.',
         firstName: 'الاسم الأول',
         lastName: 'الاسم الأخير',
         email: 'البريد الإلكتروني',
-        phone: 'الهاتف',
-        message: 'اكتب استفسارك هنا',
-        submit: 'إرسال',
+        phone: 'رقم الهاتف',
+        message: 'رسالتك هنا...',
+        submit: 'إرسال الرسالة' 
       },
-      booking: {
-        title: 'احجز الميعاد المناسب لك الآن',
-        subtitle: 'ابدأ الآن في التخطيط لمستقبلك في ألمانيا! احجز استشارة شخصية مع خبرائنا لتقييم فرصك وتحديد الخطوات اللازمة لتحقيق حلمك بالسفر والعيش في ألمانيا بنجاح.',
+      booking: { 
+        title: 'احجز الموعد المناسب لك الآن', 
+        description: 'ابدأ الآن في التخطيط لمستقبلك في ألمانيا! احجز استشارة شخصية مع خبرائنا لتقييم فرصك وتحديد الخطوات اللازمة لتحقيق حلمك بالسفر والعيش في ألمانيا بنجاح.',
         availableSlots: 'المواعيد المتاحة',
-        date: 'التاريخ',
         time: 'الوقت',
-        booked: 'BOOKED',
-        price: '30€',
+        date: 'التاريخ',
         duration: 'لمدة 30 دقيقة',
-        confirmTitle: 'تأكيد الموعد',
-        confirmDesc: 'لقد اخترت موعداً بتاريخ {{date}} في تمام الساعة {{time}}',
-        confirmBtn: 'تأكيد الحجز',
+        booked: 'محجوز',
+        noSlots: 'لا توجد مواعيد متاحة حالياً',
+        loading: 'جاري تحميل المواعيد...',
+        confirmBtn: 'تأكيد الحجز' 
+      }
+    },
+  },
+  de: {
+    translation: {
+      nav: { about: 'Über uns', services: 'Leistungen', consultations: 'Beratungen', contact: 'Kontakt' },
+      hero: {
+        title: 'Denken Sie darüber nach, nach Deutschland zu reisen?',
+        description: 'Wir bieten umfassende Beratungen an, um Ihren Erfolg in Deutschland zu sichern.',
+        cta: 'Jetzt Beratung buchen!',
       },
-      footer: {
-        rights: '© تُعالج جميع البيانات وفقاً لقانون حماية البيانات الألماني (DSGVO)، ولا يُعد المحتوى استشارة قانونية.',
+      about: {
+        title: 'Über Uns',
+        description: 'Wir sind darauf spezialisiert, umfassende Beratung für Menschen anzubieten, die nach Deutschland ziehen möchten, sei es zum Arbeiten, Studieren oder für eine Ausbildung.',
+        mission: 'Unsere Mission ist es, alle rechtlichen und verfahrenstechnischen Hindernisse zu überwinden und die notwendige Unterstützung für Ihre erfolgreiche Integration zu bieten.',
+        cta: 'Erfahren Sie mehr'
+      },
+      services: {
+        title: 'Unsere Leistungen 🇩🇪',
+        subtitle: 'Wir bieten Beratungen für Arbeit, Studium oder Berufsausbildung in Deutschland.',
+        items: [
+          { title: 'Arbeiten in Deutschland', features: ['Jobsuche', 'Lebenslauf-Erstellung', 'Anschreiben-Service', 'Vertragsprüfung'] },
+          { title: 'Berufsausbildung', features: ['Ausbildungsplatzsuche', 'Qualifikationsberatung', 'Bewerbungsunterlagen', 'Vertragsprüfung'] },
+          { title: 'Studieren in Deutschland', features: ['Studienberatung', 'Universitätswahl', 'Bewerbungsprozess', 'Zeugnisanerkennung'] },
+          { title: 'Unterkunftssuche', features: ['Wohnungssuche', 'Mietvertragsprüfung', 'Temporäre Unterkunft', 'Standortberatung'] },
+          { title: 'Anerkennung von Zeugnissen', features: ['Bewertung von Abschlüssen', 'Behördenkontakt', 'Dokumentenübersetzung', 'Verfahrensbegleitung'] },
+          { title: 'Visa-Service', features: ['Vorbereitung der Unterlagen', 'Terminbuchung', 'Reiseversicherung', 'Interview-Vorbereitung'] }
+        ]
+      },
+      stats: {
+        items: [
+          { label: 'Beratungen durchgeführt' },
+          { label: 'Erfolgreiche Vermittlungen' },
+          { label: 'Jahre Erfahrung' }
+        ]
+      },
+      contact: { 
+        title: 'Kontaktieren Sie uns', 
+        subtitle: 'Wir sind hier, um Ihre Fragen zu beantworten und Ihnen bei Ihrer Reise nach Deutschland zu helfen.',
+        firstName: 'Vorname',
+        lastName: 'Nachname',
+        email: 'E-Mail',
+        phone: 'Telefonnummer',
+        message: 'Ihre Nachricht hier...',
+        submit: 'Nachricht senden' 
+      },
+      booking: { 
+        title: 'Buchen Sie jetzt Ihren passenden Termin', 
+        description: 'Beginnen Sie jetzt mit der Planung Ihrer Zukunft in Deutschland! Buchen Sie ein persönliches Beratungsgespräch mit unseren Experten.',
+        availableSlots: 'Verfügbare Termine',
+        time: 'Zeit',
+        date: 'Datum',
+        duration: 'Dauer: 30 Minuten',
+        booked: 'GEBUCHT',
+        noSlots: 'Derzeit keine Termine verfügbar',
+        loading: 'Termine werden geladen...',
+        confirmBtn: 'Buchung bestätigen' 
       }
     },
   },
   en: {
     translation: {
-      nav: {
-        about: 'About Us',
-        services: 'Services',
-        consultations: 'Consultations',
-        contact: 'Contact Us',
-      },
+      nav: { about: 'About Us', services: 'Services', consultations: 'Consultations', contact: 'Contact Us' },
       hero: {
-        title: 'Thinking of traveling to Germany?',
-        description: 'We provide comprehensive consultations aimed at enhancing your success and guiding supervisors. We are here to help you get distinguished job opportunities in Germany, where we work to provide the necessary support and guidance to achieve your professional goals.',
+        title: 'Thinking about traveling to Germany?',
+        description: 'We provide comprehensive consultations to secure your success in Germany.',
         cta: 'Book a consultation now!',
       },
       about: {
-        title: 'Your path to Germany starts with us',
-        description: 'We are a company specialized in consulting and full implementation of travel files to Germany. We accompany you step by step on your journey towards work, study, or vocational training. Starting from accurately evaluating your personal profile, up to submitting the visa application and following it up until the decision is issued. We rely on a deep understanding of German systems and procedures, and we provide each client with a customized plan that suits their qualifications, experience, and language level, away from ready-made solutions or unrealistic promises.',
-        mission: 'Our goal is to turn the dream of traveling to Germany into a clear, legal, and safe path. And to reduce the risks and errors that may cost you time and money. We don\'t just provide a service, we are your real partner in every step, because your success in reaching Germany is the measure of our success.',
-        cta: 'Book a consultation now!',
+        title: 'About Us',
+        description: 'We specialize in providing comprehensive consulting for individuals wishing to move to Germany, whether for work, study, or vocational training.',
+        mission: 'Our mission is to overcome all legal and procedural obstacles and provide the necessary support to ensure your successful integration into German society.',
+        cta: 'Learn More'
       },
       services: {
-        title: 'Our Services - Traveling to Germany 🇩🇪',
-        subtitle: 'We provide consultations and full implementation for anyone wishing to travel to Germany for work, study, or vocational training, with precise step-by-step follow-up.',
-        work: {
-          title: 'Work in Germany',
-          items: [
-            'Search for suitable job opportunities according to experience',
-            'Preparation and modification of CV',
-            'Writing a professional Cover Letter',
-            'Reviewing employment contracts and ensuring their legality',
-            'Verifying the credibility of companies',
-          ],
-        },
-        training: {
-          title: 'Vocational Training in Germany',
-          items: [
-            'Assistance in finding suitable vocational training opportunities',
-            'Guidance according to qualification and language level',
-            'Preparation of full application papers',
-            'Reviewing training contracts',
-            'Follow-up with the training entity',
-          ],
-        },
-        study: {
-          title: 'Study in Germany',
-          items: [
-            'Specialized educational consultations',
-            'Choosing the appropriate specialization and university',
-            'Preparation of application papers for universities',
-            'Equivalency of certificates',
-            'Guidance for learning the German language',
-          ],
-        },
-        visa: {
-          title: 'Visa',
-          items: [
-            'Full preparation of the visa file',
-            'Reviewing all required documents',
-            'Preparation of health insurance',
-          ],
-        },
-        planning: {
-          title: 'Consultation and Planning',
-          items: [
-            'Examination and evaluation of the personal profile',
-            'Evaluation of qualification and practical experience',
-            'Determining the most suitable path (work - study - training)',
-            'Setting a clear application plan',
-            'Providing customized guidance for each case',
-          ],
-        },
-        docs: {
-          title: 'Preparation and Review of Documents',
-          items: [
-            'Reviewing all required documents',
-            'Modifying and preparing the CV',
-            'Writing or improving the Cover Letter',
-            'Reviewing employment or training contracts',
-            'Ensuring compliance of documents with embassy requirements',
-          ],
-        },
+        title: 'Our Services 🇩🇪',
+        subtitle: 'Comprehensive consulting for work, study, or vocational training in Germany.',
+        items: [
+          { title: 'Work in Germany', features: ['Job search assistance', 'CV Preparation', 'Cover Letter writing', 'Contract review'] },
+          { title: 'Vocational Training', features: ['Finding apprenticeships', 'Qualification guidance', 'Application papers', 'Contract review'] },
+          { title: 'Study in Germany', features: ['Academic consulting', 'University selection', 'Application support', 'Certificate recognition'] },
+          { title: 'Housing Assistance', features: ['Finding accommodation', 'Rental contract review', 'Temporary housing', 'Area guidance'] },
+          { title: 'Recognition of Degrees', features: ['Degree evaluation', 'Authority contact', 'Document translation', 'Process tracking'] },
+          { title: 'Visa Support', features: ['Embassy file preparation', 'Appointment booking', 'Travel insurance', 'Interview preparation'] }
+        ]
       },
       stats: {
-        success: '10%',
-        successDesc: 'Our clients value our specialized service, tailored coverage, and fast responses that enabled them to travel successfully to Germany.',
-        clients: '1',
-        clientsDesc: 'Client was able to travel to Germany thanks to our assistance in facilitating visa procedures and providing the necessary support.',
-        experience: '1',
-        experienceDesc: 'Through our extensive experience in the insurance sector, we enable our clients to travel with confidence to Germany.',
+        items: [
+          { label: 'Consultations Provided' },
+          { label: 'Successful Placements' },
+          { label: 'Years of Experience' }
+        ]
       },
-      contact: {
-        title: 'Contact Us',
-        subtitle: 'If you have any questions or inquiries about our services, please feel free to contact us. Our technical support team is ready to help you at every step.',
+      contact: { 
+        title: 'Contact Us', 
+        subtitle: 'We are here to answer your questions and help you with your journey to Germany.',
         firstName: 'First Name',
         lastName: 'Last Name',
-        email: 'Email',
-        phone: 'Phone',
-        message: 'Write your inquiry here',
-        submit: 'Send',
+        email: 'Email Address',
+        phone: 'Phone Number',
+        message: 'Your message here...',
+        submit: 'Send Message' 
       },
-      booking: {
-        title: 'Book the right appointment for you now',
-        subtitle: 'Start planning your future in Germany now! Book a personal consultation with our experts to evaluate your opportunities and determine the steps necessary to achieve your dream of traveling and living in Germany successfully.',
+      booking: { 
+        title: 'Book Your Perfect Appointment Now', 
+        description: 'Start planning your future in Germany today! Book a personal consultation with our experts to evaluate your opportunities.',
         availableSlots: 'Available Slots',
-        date: 'Date',
         time: 'Time',
+        date: 'Date',
+        duration: 'For 30 Minutes',
         booked: 'BOOKED',
-        price: '30€',
-        duration: 'For 30 minutes',
-        confirmTitle: 'Confirm Appointment',
-        confirmDesc: 'You have selected an appointment on {{date}} at {{time}}',
-        confirmBtn: 'Confirm Booking',
-      },
-      footer: {
-        rights: '© All data is processed in accordance with the German Data Protection Act (DSGVO), and the content is not legal advice.',
+        noSlots: 'No slots available at the moment',
+        loading: 'Loading slots...',
+        confirmBtn: 'Confirm Booking' 
       }
     },
   },
@@ -245,9 +187,8 @@ i18n
   .init({
     resources,
     fallbackLng: 'ar',
-    interpolation: {
-      escapeValue: false,
-    },
+    detection: { order: ['localStorage', 'navigator'], caches: ['localStorage'] },
+    interpolation: { escapeValue: false },
   });
 
 export default i18n;
