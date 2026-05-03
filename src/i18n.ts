@@ -51,18 +51,23 @@ const resources = {
         message: 'رسالتك هنا...',
         submit: 'إرسال الرسالة' 
       },
-      booking: { 
-        title: 'احجز الموعد المناسب لك الآن', 
-        description: 'ابدأ الآن في التخطيط لمستقبلك في ألمانيا! احجز استشارة شخصية مع خبرائنا لتقييم فرصك وتحديد الخطوات اللازمة لتحقيق حلمك بالسفر والعيش في ألمانيا بنجاح.',
-        availableSlots: 'المواعيد المتاحة',
-        time: 'الوقت',
-        date: 'التاريخ',
-        duration: 'لمدة 30 دقيقة',
-        booked: 'محجوز',
-        noSlots: 'لا توجد مواعيد متاحة حالياً',
-        loading: 'جاري تحميل المواعيد...',
-        confirmBtn: 'تأكيد الحجز' 
-      }
+     booking: { 
+  title: 'احجز الموعد المناسب لك الآن', 
+  description: 'ابدأ الآن في التخطيط لمستقبلك في ألمانيا! احجز استشارة شخصية مع خبرائنا لتقييم فرصك وتحديد الخطوات اللازمة لتحقيق حلمك بالسفر والعيش في ألمانيا بنجاح.',
+  availableSlots: 'المواعيد المتاحة',
+  time: 'الوقت',
+  date: 'التاريخ',
+  duration: 'لمدة 30 دقيقة',
+  booked: 'محجوز',
+  noSlots: 'لا توجد مواعيد متاحة حالياً',
+  loading: 'جاري تحميل المواعيد...',
+  confirmBtn: 'تأكيد الحجز',
+  am: 'صباحاً',
+  pm: 'مساءً'
+},
+      footer: {
+  rights: 'تُعالج جميع البيانات وفقاً لقانون حماية البيانات الألماني (DSGVO)، ولا يُعد المحتوى استشارة قانونية.'
+}
     },
   },
   de: {
@@ -109,17 +114,22 @@ const resources = {
         submit: 'Nachricht senden' 
       },
       booking: { 
-        title: 'Buchen Sie jetzt Ihren passenden Termin', 
-        description: 'Beginnen Sie jetzt mit der Planung Ihrer Zukunft in Deutschland! Buchen Sie ein persönliches Beratungsgespräch mit unseren Experten.',
-        availableSlots: 'Verfügbare Termine',
-        time: 'Zeit',
-        date: 'Datum',
-        duration: 'Dauer: 30 Minuten',
-        booked: 'GEBUCHT',
-        noSlots: 'Derzeit keine Termine verfügbar',
-        loading: 'Termine werden geladen...',
-        confirmBtn: 'Buchung bestätigen' 
-      }
+  title: 'Buchen Sie jetzt Ihren passenden Termin', 
+  description: 'Beginnen Sie jetzt mit der Planung Ihrer Zukunft in Deutschland! Buchen Sie ein persönliches Beratungsgespräch mit unseren Experten.',
+  availableSlots: 'Verfügbare Termine',
+  time: 'Zeit',
+  date: 'Datum',
+  duration: 'Dauer: 30 Min.',
+  booked: 'GEBUCHT',
+  noSlots: 'Derzeit keine Termine verfügbar',
+  loading: 'Termine werden geladen...',
+  confirmBtn: 'Buchung bestätigen',
+  am: 'Uhr',
+  pm: 'Uhr'
+},
+      footer: {
+  rights: 'Alle Daten werden gemäß der DSGVO verarbeitet. Der Inhalt stellt keine Rechtsberatung dar.'
+}
     },
   },
   en: {
@@ -165,21 +175,42 @@ const resources = {
         message: 'Your message here...',
         submit: 'Send Message' 
       },
-      booking: { 
-        title: 'Book Your Perfect Appointment Now', 
-        description: 'Start planning your future in Germany today! Book a personal consultation with our experts to evaluate your opportunities.',
-        availableSlots: 'Available Slots',
-        time: 'Time',
-        date: 'Date',
-        duration: 'For 30 Minutes',
-        booked: 'BOOKED',
-        noSlots: 'No slots available at the moment',
-        loading: 'Loading slots...',
-        confirmBtn: 'Confirm Booking' 
-      }
+     booking: { 
+  title: 'Book Your Perfect Appointment Now', 
+  description: 'Start planning your future in Germany today! Book a personal consultation with our experts to evaluate your opportunities.',
+  availableSlots: 'Available Slots',
+  time: 'Time',
+  date: 'Date',
+  duration: 'For 30 Minutes',
+  booked: 'BOOKED',
+  noSlots: 'No slots available at the moment',
+  loading: 'Loading slots...',
+  confirmBtn: 'Confirm Booking',
+  am: 'AM',
+  pm: 'PM'
+},
+      footer: {
+  rights: 'All data is processed in accordance with the GDPR. Content does not constitute legal advice.'
+}
+
+
+
+
+
+
+
+
+      
     },
   },
 };
+
+
+
+
+
+
+
 
 i18n
   .use(LanguageDetector)

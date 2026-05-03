@@ -32,6 +32,7 @@ useEffect(() => {
 
     try {
 const formattedDate = "2026-05-04";
+
       const response = await getAvailability(formattedDate);
 
       // 👇 هنا المكان الصح
