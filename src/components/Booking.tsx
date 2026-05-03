@@ -24,28 +24,49 @@ export default function Booking() {
   const isEn = currentLang === 'en';
   const isDe = currentLang === 'de';
 
-  useEffect(() => {
-    const fetchSlots = async () => {
-      if (!date) return;
-      setIsLoading(true);
-      try {
-        const formattedDate = date.toISOString().split('T')[0];
-        const response = await getAvailability(formattedDate);
-        const data = response.data?.data || response.data || [];
-        setTimeSlots(Array.isArray(data) ? data : []);
-      } catch (err) {
-        console.error("Error fetching slots:", err);
-        setTimeSlots([]);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchSlots();
-  }, [date, currentLang]);
+useEffect(() => {
+  const fetchSlots = async () => {
+    if (!date) return;
+
+    setIsLoading(true);
+
+    try {
+const formattedDate = "2026-05-04";
+      const response = await getAvailability(formattedDate);
+
+      // 👇 هنا المكان الصح
+      console.log("API RESPONSE:", response.data);
+      const data =
+        response.data?.data ||
+        response.data?.slots ||
+        response.data ||
+        [];
+
+      setTimeSlots(Array.isArray(data) ? data : []);
+    } catch (err) {
+      console.error("Error fetching slots:", err);
+      setTimeSlots([]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  fetchSlots();
+}, [date]);
 
   // دالة لتنسيق التاريخ حسب اللغة المختارة
   const formatDate = (dateString: string) => {
     const locale = isAr ? 'ar-EG' : isDe ? 'de-DE' : 'en-GB';
+
+
+
+
+
+  console.log("TIME SLOTS:", timeSlots);
+
+
+
+
     return new Date(dateString).toLocaleDateString(locale, { 
       day: 'numeric', 
       month: 'short', 
@@ -181,11 +202,18 @@ export default function Booking() {
                         {slot.time?.substring(0, 5)} {isAr ? 'مساًء' : 'PM'}
                       </span>
 
-                      <span className={cn("text-xl font-black mt-1", 
-                        slot.is_booked ? "text-white" : selectedSlot === slot.id ? "text-white" : "text-slate-800"
-                      )}>
-                        {slot.price_cents != null ? (slot.price_cents / 100).toFixed(0) : "30"}€
-                      </span>
+                      <span
+  className={cn(
+    "text-xl font-black mt-1",
+    slot.is_booked
+      ? "text-white"
+      : selectedSlot === slot.id
+      ? "text-white"
+      : "text-slate-800"
+  )}
+>
+  {slot.price?.amount ?? "30"} {slot.price?.currency ?? "€"}
+</span>
 
                       <span className={cn("text-[10px] font-bold mt-1", 
                         slot.is_booked ? "text-white/70" : selectedSlot === slot.id ? "text-white/80" : "text-slate-400"

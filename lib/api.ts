@@ -53,12 +53,13 @@ export const getServices = (publishedOnly: boolean = true, perPage: number = 50)
 export const getServiceBySlug = (slug: string) => 
   apiClient.get(`/services/${slug}`);
 
-// --- المواعيد والحجز (Booking) ---
 export const getAvailability = (date: string) => 
   apiClient.get(`/availability`, { 
-    params: { date } 
+    params: { 
+      date,
+      include_booked: 1
+    } 
   });
-
 export const createBooking = (bookingData: {
   appointment_slot_id: string;
   full_name: string;

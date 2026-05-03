@@ -3,7 +3,7 @@ import { Globe, Menu, X, ChevronLeft, ChevronRight, Check } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'motion/react';
-import logo from '../assets/logo.png';
+import logo from '../../public/logo.png';
 
 export default function Header({ onPageChange }: { onPageChange: (page: 'home' | 'booking') => void }) {
   const { t, i18n } = useTranslation();
